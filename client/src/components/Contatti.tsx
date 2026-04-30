@@ -9,10 +9,10 @@ import { Phone, Mail, MapPin, Clock, Send, CheckCircle } from "lucide-react";
 import { toast } from "sonner";
 
 const contatti = [
-  { icon: Phone, label: "Telefono", valore: "+39 333 000 0000", href: "tel:+393330000000" },
-  { icon: Mail, label: "Email", valore: "info@coloreeverde.it", href: "mailto:info@coloreeverde.it" },
-  { icon: MapPin, label: "Zona di Intervento", valore: "Milano e Provincia", href: "#" },
-  { icon: Clock, label: "Orari", valore: "Lun–Sab, 8:00–18:00", href: "#" },
+  { icon: Phone, label: "Telefono", valore: "+39 338 453 1102", href: "tel:+393384531102" },
+  { icon: Mail, label: "Email", valore: "marco.baldi.24@gmail.com", href: "mailto:marco.baldi.24@gmail.com" },
+  { icon: MapPin, label: "Zona di Intervento", valore: "Pistoia e Provincia", href: "#" },
+  { icon: Clock, label: "Orari", valore: "Lun–Ven, 8:00–18:00", href: "#" },
 ];
 
 export default function Contatti() {
@@ -167,7 +167,7 @@ export default function Contatti() {
                         name="telefono"
                         value={form.telefono}
                         onChange={handleChange}
-                        placeholder="+39 333 000 0000"
+                        placeholder="+39 338 453 1102"
                         className={inputClass}
                         style={inputStyle}
                         required

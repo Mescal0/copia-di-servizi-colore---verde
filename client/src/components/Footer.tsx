@@ -80,20 +80,20 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <Phone size={15} className="text-[oklch(0.58_0.13_45)] shrink-0 mt-0.5" />
-                <a href="tel:+393330000000" className="font-['DM_Sans'] text-sm text-white/60 hover:text-white transition-colors duration-200">
-                  +39 333 000 0000
+                <a href="tel:+393384531102" className="font-['DM_Sans'] text-sm text-white/60 hover:text-white transition-colors duration-200">
+                  +39 338 453 1102
                 </a>
               </li>
               <li className="flex items-start gap-3">
                 <Mail size={15} className="text-[oklch(0.58_0.13_45)] shrink-0 mt-0.5" />
-                <a href="mailto:info@coloreeverde.it" className="font-['DM_Sans'] text-sm text-white/60 hover:text-white transition-colors duration-200">
-                  info@coloreeverde.it
+                <a href="mailto:marco.baldi.24@gmail.com" className="font-['DM_Sans'] text-sm text-white/60 hover:text-white transition-colors duration-200">
+                  marco.baldi.24@gmail.com
                 </a>
               </li>
               <li className="flex items-start gap-3">
                 <MapPin size={15} className="text-[oklch(0.58_0.13_45)] shrink-0 mt-0.5" />
                 <span className="font-['DM_Sans'] text-sm text-white/60">
-                  Milano e Provincia
+                  Pistoia e Provincia
                 </span>
               </li>
             </ul>
