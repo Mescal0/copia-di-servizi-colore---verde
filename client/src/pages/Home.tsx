@@ -10,6 +10,7 @@ import Galleria from "@/components/Galleria";
 import Testimonianze from "@/components/Testimonianze";
 import Contatti from "@/components/Contatti";
 import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
       <Testimonianze />
       <Contatti />
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 }
