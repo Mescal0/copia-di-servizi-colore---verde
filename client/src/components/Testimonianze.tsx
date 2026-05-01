@@ -288,7 +288,7 @@ export default function Testimonianze() {
             Sei già nostro cliente? Lascia la tua recensione su Google e aiuta altri a sceglierci.
           </p>
           <a
-            href="https://g.page/r/review"
+            href="https://search.google.com/local/writereview?placeid=ChIJ_colore_verde_pistoia"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 font-['DM_Sans'] text-sm font-semibold text-[oklch(0.35_0.08_145)] border border-[oklch(0.35_0.08_145)] px-5 py-2.5 hover:bg-[oklch(0.35_0.08_145)] hover:text-white transition-all duration-200"

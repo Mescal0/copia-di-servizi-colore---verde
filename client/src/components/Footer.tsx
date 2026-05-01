@@ -28,18 +28,22 @@ export default function Footer() {
             {/* Social */}
             <div className="flex gap-3 mt-5">
               <a
-                href="#"
+                href="https://www.facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-9 h-9 bg-white/5 hover:bg-[oklch(0.58_0.13_45)] flex items-center justify-center transition-colors duration-200"
                 style={{ borderRadius: "2px" }}
-                aria-label="Facebook"
+                aria-label="Facebook — Colore & Verde"
               >
                 <Facebook size={16} className="text-white/60 hover:text-white" />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-9 h-9 bg-white/5 hover:bg-[oklch(0.58_0.13_45)] flex items-center justify-center transition-colors duration-200"
                 style={{ borderRadius: "2px" }}
-                aria-label="Instagram"
+                aria-label="Instagram — Colore & Verde"
               >
                 <Instagram size={16} className="text-white/60 hover:text-white" />
               </a>
