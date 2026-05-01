@@ -1,6 +1,6 @@
 /*
  * GALLERIA — Design: Artigianato Italiano Contemporaneo
- * Griglia masonry-style con immagini Unsplash
+ * Griglia masonry-style con foto reali dei lavori
  * Sfondo: sabbia chiaro
  * Hover: overlay verde oliva con titolo
  */
@@ -10,44 +10,72 @@ import { X } from "lucide-react";
 const lavori = [
   {
     id: 1,
-    titolo: "Appartamento Milano",
+    titolo: "Imbiancatura Soggiorno",
     categoria: "Imbiancatura",
-    img: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&q=80",
+    img: "/manus-storage/lavoro_soggiorno_ee501eb2.png",
     span: "row-span-2",
   },
   {
     id: 2,
-    titolo: "Villa Toscana",
+    titolo: "Verniciatura Infissi",
     categoria: "Verniciatura",
-    img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
+    img: "/manus-storage/lavoro_infissi_21fdcbfc.png",
     span: "",
   },
   {
     id: 3,
-    titolo: "Giardino Privato",
-    categoria: "Verde",
-    img: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&q=80",
+    titolo: "Tinteggiatura Camera",
+    categoria: "Imbiancatura",
+    img: "/manus-storage/lavoro_camera_010f45d9.png",
     span: "",
   },
   {
     id: 4,
-    titolo: "Condominio Roma",
+    titolo: "Mansarda con Travi",
     categoria: "Imbiancatura",
-    img: "https://images.unsplash.com/photo-1562663474-6cbb3eaa4d14?w=600&q=80",
+    img: "/manus-storage/lavoro_mansarda1_035d34fc.png",
     span: "row-span-2",
   },
   {
     id: 5,
-    titolo: "Cancello in Ferro",
-    categoria: "Verniciatura",
-    img: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80",
+    titolo: "Corridoio Mansarda",
+    categoria: "Imbiancatura",
+    img: "/manus-storage/lavoro_mansarda2_62aced1f.png",
     span: "",
   },
   {
     id: 6,
-    titolo: "Parco Aziendale",
-    categoria: "Verde",
-    img: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&q=80",
+    titolo: "Stanza Mansarda",
+    categoria: "Imbiancatura",
+    img: "/manus-storage/lavoro_mansarda3_c0010291.png",
+    span: "",
+  },
+  {
+    id: 7,
+    titolo: "Bagno Ristrutturato",
+    categoria: "Imbiancatura",
+    img: "/manus-storage/lavoro_bagno_05adc136.png",
+    span: "",
+  },
+  {
+    id: 8,
+    titolo: "Corridoio Tinteggiato",
+    categoria: "Imbiancatura",
+    img: "/manus-storage/lavoro_corridoio_94c707e8.png",
+    span: "",
+  },
+  {
+    id: 9,
+    titolo: "Trattamento Persiane",
+    categoria: "Verniciatura",
+    img: "/manus-storage/lavoro_persiane_29b70c06.png",
+    span: "",
+  },
+  {
+    id: 10,
+    titolo: "Restauro Porta Finestra",
+    categoria: "Verniciatura",
+    img: "/manus-storage/lavoro_portafinestra_5b128b6b.png",
     span: "",
   },
 ];
@@ -131,6 +159,7 @@ export default function Galleria() {
                 src={lavoro.img}
                 alt={lavoro.titolo}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                loading="lazy"
               />
               {/* Overlay */}
               <div className="absolute inset-0 bg-[oklch(0.28_0.07_145/0)] group-hover:bg-[oklch(0.28_0.07_145/0.85)] transition-all duration-400 flex flex-col justify-end p-5">
@@ -161,7 +190,7 @@ export default function Galleria() {
             onClick={(e) => e.stopPropagation()}
           >
             <img
-              src={lightbox.img.replace("w=600", "w=1200")}
+              src={lightbox.img}
               alt={lightbox.titolo}
               className="w-full max-h-[80vh] object-contain"
               style={{ borderRadius: "2px" }}
