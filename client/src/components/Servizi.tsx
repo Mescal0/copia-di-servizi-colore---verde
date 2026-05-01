@@ -101,7 +101,7 @@ export default function Servizi() {
             <span className="italic text-[oklch(0.75_0.09_80)]">in un unico posto</span>
           </h2>
           <p className="reveal font-['DM_Sans'] text-base text-white/70 max-w-xl mx-auto leading-relaxed">
-            Offriamo una gamma completa di servizi per la cura e il miglioramento della tua abitazione, dal colore delle pareti alla bellezza del giardino.
+            Offriamo una gamma completa di servizi di imbiancatura, verniciatura e cura del verde a <strong className="font-semibold text-white">Pistoia e Provincia</strong>. Preventivo gratuito e sopralluogo entro 48 ore.
           </p>
         </div>
       </div>

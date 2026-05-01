@@ -73,7 +73,7 @@ export default function Contatti() {
               <span className="italic text-[oklch(0.35_0.08_145)]">tuo progetto</span>
             </h2>
             <p className="reveal font-['DM_Sans'] text-base text-[oklch(0.42_0.02_65)] leading-relaxed mb-10">
-              Contattaci per un preventivo gratuito e senza impegno. Risponderemo entro 24 ore e, se necessario, verremo a fare un sopralluogo direttamente da te.
+              Cerchi un <strong className="font-semibold text-[oklch(0.22_0.008_65)]">imbianchino a Pistoia</strong> o un servizio di verniciatura professionale? Contattaci per un preventivo gratuito e senza impegno. Interveniamo su tutto il territorio di <strong className="font-semibold text-[oklch(0.22_0.008_65)]">Pistoia e Provincia</strong> entro 48 ore.
             </p>
 
             {/* Contact info */}

@@ -64,11 +64,12 @@ export default function Hero() {
               <br />e Qualità
               <br />
               <span className="text-[oklch(0.58_0.13_45)]">Artigianale</span>
+              <span className="sr-only"> — Imbiancatura e Verniciatura a Pistoia</span>
             </h1>
 
             {/* Subtitle */}
             <p className="font-['DM_Sans'] text-lg text-white/80 leading-relaxed mb-8 max-w-lg">
-              Imbiancatura, verniciatura e servizi per il verde. Trasformiamo i tuoi spazi con cura, precisione e materiali di qualità.
+              Imbiancatura, verniciatura e servizi per il verde a <strong className="font-semibold text-white">Pistoia e Provincia</strong>. Trasformiamo i tuoi spazi con cura, precisione e materiali di qualità.
             </p>
 
             {/* Trust points */}
