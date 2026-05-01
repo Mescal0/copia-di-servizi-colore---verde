@@ -115,7 +115,7 @@ export default function Footer() {
             © {new Date().getFullYear()} Colore &amp; Verde. Tutti i diritti riservati.
           </p>
           <p className="font-['DM_Sans'] text-xs text-white/30">
-            P.IVA 00000000000 — Artigiani Italiani
+            P.IVA  — Artigiani Italiani
           </p>
         </div>
       </div>
