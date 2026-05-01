@@ -3,10 +3,12 @@
  * Layout: testo sinistra + form destra
  * Form con campi arrotondati (radius 2px), focus verde oliva
  * Sfondo: bianco calce
+ * Notifica al titolare via tRPC (notifyOwner) ad ogni invio preventivo
  */
 import { useEffect, useRef, useState } from "react";
-import { Phone, Mail, MapPin, Clock, Send, CheckCircle } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Send, CheckCircle, Loader2 } from "lucide-react";
 import { toast } from "sonner";
+import { trpc } from "@/lib/trpc";
 
 const contatti = [
   { icon: Phone, label: "Telefono", valore: "+39 338 453 1102", href: "tel:+393384531102" },
@@ -24,6 +26,16 @@ export default function Contatti() {
     email: "",
     servizio: "",
     messaggio: "",
+  });
+
+  const inviaMutation = trpc.preventivo.invia.useMutation({
+    onSuccess: () => {
+      setSubmitted(true);
+      toast.success("Richiesta inviata! Ti contatteremo entro 24 ore.");
+    },
+    onError: (err) => {
+      toast.error(`Errore nell'invio: ${err.message}. Prova a chiamarci direttamente.`);
+    },
   });
 
   useEffect(() => {
@@ -53,12 +65,18 @@ export default function Contatti() {
       toast.error("Compila i campi obbligatori: Nome, Telefono e Servizio.");
       return;
     }
-    setSubmitted(true);
-    toast.success("Richiesta inviata! Ti contatteremo entro 24 ore.");
+    inviaMutation.mutate({
+      nome: form.nome,
+      telefono: form.telefono,
+      email: form.email || undefined,
+      servizio: form.servizio,
+      messaggio: form.messaggio || undefined,
+    });
   };
 
-  const inputClass = `w-full px-4 py-3 font-['DM_Sans'] text-sm text-[oklch(0.22_0.008_65)] bg-white border border-[oklch(0.88_0.018_80)] focus:border-[oklch(0.35_0.08_145)] focus:outline-none focus:ring-2 focus:ring-[oklch(0.35_0.08_145/0.15)] transition-all duration-200 placeholder:text-[oklch(0.65_0.01_65)]`;
+  const inputClass = `w-full px-4 py-3 font-['DM_Sans'] text-sm text-[oklch(0.22_0.008_65)] bg-white border border-[oklch(0.88_0.018_80)] focus:border-[oklch(0.35_0.08_145)] focus:outline-none focus:ring-2 focus:ring-[oklch(0.35_0.08_145/0.15)] transition-all duration-200 placeholder:text-[oklch(0.65_0.01_65)] disabled:opacity-60 disabled:cursor-not-allowed`;
   const inputStyle = { borderRadius: "2px" };
+  const isLoading = inviaMutation.isPending;
 
   return (
     <section id="contatti" ref={sectionRef} className="py-24 lg:py-32 bg-[oklch(0.97_0.012_85)]">
@@ -133,7 +151,10 @@ export default function Contatti() {
                     Grazie per averci contattato. Ti risponderemo entro 24 ore lavorative.
                   </p>
                   <button
-                    onClick={() => { setSubmitted(false); setForm({ nome: "", telefono: "", email: "", servizio: "", messaggio: "" }); }}
+                    onClick={() => {
+                      setSubmitted(false);
+                      setForm({ nome: "", telefono: "", email: "", servizio: "", messaggio: "" });
+                    }}
                     className="mt-6 font-['DM_Sans'] text-sm text-[oklch(0.35_0.08_145)] underline underline-offset-2"
                   >
                     Invia un'altra richiesta
@@ -153,6 +174,7 @@ export default function Contatti() {
                       placeholder="Mario Rossi"
                       className={inputClass}
                       style={inputStyle}
+                      disabled={isLoading}
                       required
                     />
                   </div>
@@ -170,6 +192,7 @@ export default function Contatti() {
                         placeholder="+39 338 453 1102"
                         className={inputClass}
                         style={inputStyle}
+                        disabled={isLoading}
                         required
                       />
                     </div>
@@ -185,6 +208,7 @@ export default function Contatti() {
                         placeholder="mario@email.it"
                         className={inputClass}
                         style={inputStyle}
+                        disabled={isLoading}
                       />
                     </div>
                   </div>
@@ -199,13 +223,14 @@ export default function Contatti() {
                       onChange={handleChange}
                       className={inputClass}
                       style={inputStyle}
+                      disabled={isLoading}
                       required
                     >
                       <option value="" disabled>Seleziona un servizio...</option>
-                      <option value="imbiancatura">Imbiancatura</option>
-                      <option value="verniciatura">Verniciatura</option>
-                      <option value="verde">Servizi per il Verde</option>
-                      <option value="multiplo">Più servizi</option>
+                      <option value="Imbiancatura">Imbiancatura</option>
+                      <option value="Verniciatura">Verniciatura</option>
+                      <option value="Servizi per il Verde">Servizi per il Verde</option>
+                      <option value="Più servizi">Più servizi</option>
                     </select>
                   </div>
 
@@ -221,16 +246,27 @@ export default function Contatti() {
                       rows={4}
                       className={`${inputClass} resize-none`}
                       style={inputStyle}
+                      disabled={isLoading}
                     />
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full flex items-center justify-center gap-2 bg-[oklch(0.35_0.08_145)] text-white py-4 font-['DM_Sans'] font-semibold text-sm tracking-wide hover:bg-[oklch(0.42_0.09_145)] active:scale-[0.99] transition-all duration-200"
+                    disabled={isLoading}
+                    className="w-full flex items-center justify-center gap-2 bg-[oklch(0.35_0.08_145)] text-white py-4 font-['DM_Sans'] font-semibold text-sm tracking-wide hover:bg-[oklch(0.42_0.09_145)] active:scale-[0.99] transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
                     style={{ borderRadius: "2px" }}
                   >
-                    <Send size={16} />
-                    Invia Richiesta di Preventivo
+                    {isLoading ? (
+                      <>
+                        <Loader2 size={16} className="animate-spin" />
+                        Invio in corso...
+                      </>
+                    ) : (
+                      <>
+                        <Send size={16} />
+                        Invia Richiesta di Preventivo
+                      </>
+                    )}
                   </button>
 
                   <p className="font-['DM_Sans'] text-xs text-[oklch(0.65_0.01_65)] text-center leading-relaxed">
