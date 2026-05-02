@@ -6,6 +6,7 @@
  */
 import { useEffect, useRef } from "react";
 import { ArrowDown, CheckCircle } from "lucide-react";
+import { scrollToSection } from "@/lib/scrollToSection";
 
 const HERO_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663539711843/HaeMCGMei4PNfU2Mfmv3UP/hero-painting-YwXPA9dS8FQUHFSfAxAHB8.webp";
 
@@ -23,7 +24,7 @@ export default function Hero() {
   }, []);
 
   const scrollToServizi = () => {
-    document.querySelector("#servizi")?.scrollIntoView({ behavior: "smooth" });
+    scrollToSection("#servizi");
   };
 
   return (
@@ -85,14 +86,14 @@ export default function Hero() {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
               <button
-                onClick={() => document.querySelector("#contatti")?.scrollIntoView({ behavior: "smooth" })}
+                onClick={() => scrollToSection("#contatti")}
                 className="inline-flex items-center justify-center gap-2 bg-[oklch(0.58_0.13_45)] text-white px-8 py-4 font-['DM_Sans'] font-semibold text-base tracking-wide hover:bg-[oklch(0.52_0.14_45)] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
                 style={{ borderRadius: "2px" }}
               >
                 Richiedi Preventivo Gratis
               </button>
               <button
-                onClick={() => document.querySelector("#servizi")?.scrollIntoView({ behavior: "smooth" })}
+                onClick={() => scrollToSection("#servizi")}
                 className="inline-flex items-center justify-center gap-2 border-2 border-white/60 text-white px-8 py-4 font-['DM_Sans'] font-medium text-base tracking-wide hover:border-white hover:bg-white/10 transition-all duration-300"
                 style={{ borderRadius: "2px" }}
               >

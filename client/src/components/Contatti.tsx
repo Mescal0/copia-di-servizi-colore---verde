@@ -5,7 +5,8 @@
  * Sfondo: bianco calce
  * Notifica al titolare via tRPC (notifyOwner) ad ogni invio preventivo
  */
-import { useEffect, useRef, useState } from "react";
+import { useRevealObserver } from "@/hooks/useRevealObserver";
+import { useState } from "react";
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import { trpc } from "@/lib/trpc";
@@ -18,7 +19,7 @@ const contatti = [
 ];
 
 export default function Contatti() {
-  const sectionRef = useRef<HTMLElement>(null);
+  const sectionRef = useRevealObserver<HTMLElement>();
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({
     nome: "",
@@ -37,23 +38,6 @@ export default function Contatti() {
       toast.error(`Errore nell'invio: ${err.message}. Prova a chiamarci direttamente.`);
     },
   });
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.querySelectorAll(".reveal").forEach((el, i) => {
-              setTimeout(() => el.classList.add("visible"), i * 100);
-            });
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });

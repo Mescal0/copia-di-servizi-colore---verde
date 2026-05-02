@@ -3,7 +3,8 @@
  * Sezione recensioni avanzata: carosello, badge Google, avatar, data, tag servizio
  * Sfondo: bianco calce con accenti verde oliva e terracotta
  */
-import { useEffect, useRef, useState } from "react";
+import { useRevealObserver } from "@/hooks/useRevealObserver";
+import { useEffect, useState } from "react";
 import { Star, ChevronLeft, ChevronRight, Quote, ThumbsUp } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -85,48 +86,27 @@ const recensioni = [
 const VISIBLE = 3; // card visibili per volta su desktop
 
 export default function Testimonianze() {
-  const sectionRef = useRef<HTMLElement>(null);
+  const sectionRef = useRevealObserver<HTMLElement>(80, 0.08);
   const [current, setCurrent] = useState(0);
-  const [direction, setDirection] = useState<1 | -1>(1);
   const total = recensioni.length;
 
   // Auto-avanzamento ogni 6s
   useEffect(() => {
     const timer = setInterval(() => {
-      setDirection(1);
       setCurrent((c) => (c + 1) % total);
     }, 6000);
     return () => clearInterval(timer);
   }, [total]);
 
   const prev = () => {
-    setDirection(-1);
     setCurrent((c) => (c - 1 + total) % total);
   };
   const next = () => {
-    setDirection(1);
     setCurrent((c) => (c + 1) % total);
   };
 
   // Indici delle 3 card visibili (con wrap)
   const visibleIndices = Array.from({ length: VISIBLE }, (_, i) => (current + i) % total);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.querySelectorAll(".reveal").forEach((el, i) => {
-              setTimeout(() => el.classList.add("visible"), i * 80);
-            });
-          }
-        });
-      },
-      { threshold: 0.08 }
-    );
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
 
   return (
     <section ref={sectionRef} className="py-24 lg:py-32 bg-[oklch(0.97_0.012_85)] overflow-hidden">
@@ -236,7 +216,7 @@ export default function Testimonianze() {
               {recensioni.map((_, i) => (
                 <button
                   key={i}
-                  onClick={() => { setDirection(i > current ? 1 : -1); setCurrent(i); }}
+                  onClick={() => { setCurrent(i); }}
                   aria-label={`Vai alla recensione ${i + 1}`}
                   className="transition-all duration-300"
                   style={{

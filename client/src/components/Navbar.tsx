@@ -6,6 +6,7 @@
  */
 import { useState, useEffect } from "react";
 import { Menu, X, Phone } from "lucide-react";
+import { scrollToSection } from "@/lib/scrollToSection";
 
 const navLinks = [
   { label: "Chi Siamo", href: "#chi-siamo" },
@@ -26,8 +27,7 @@ export default function Navbar() {
 
   const handleNavClick = (href: string) => {
     setMenuOpen(false);
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+    scrollToSection(href);
   };
 
   return (

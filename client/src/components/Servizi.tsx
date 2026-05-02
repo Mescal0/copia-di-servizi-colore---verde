@@ -4,7 +4,8 @@
  * Card con numerazione grande semitrasparente
  * Tre servizi principali: Imbiancatura, Verniciatura, Verde
  */
-import { useEffect, useRef } from "react";
+import { useRevealObserver } from "@/hooks/useRevealObserver";
+import { scrollToSection } from "@/lib/scrollToSection";
 import {
   Home,
   Paintbrush2,
@@ -31,7 +32,7 @@ const servizi = [
       "Facciate esterne",
     ],
     colore: "bg-white",
-    accentColor: "oklch(0.35_0.08_145)",
+    accentColor: "0.35_0.08_145",
   },
   {
     num: "02",
@@ -48,7 +49,7 @@ const servizi = [
       "Ripristino e restauro",
     ],
     colore: "bg-[oklch(0.93_0.015_80)]",
-    accentColor: "oklch(0.58_0.13_45)",
+    accentColor: "0.58_0.13_45",
   },
   {
     num: "03",
@@ -65,29 +66,12 @@ const servizi = [
       "Smaltimento verde e ramaglie",
     ],
     colore: "bg-white",
-    accentColor: "oklch(0.35_0.08_145)",
+    accentColor: "0.35_0.08_145",
   },
 ];
 
 export default function Servizi() {
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.querySelectorAll(".reveal").forEach((el, i) => {
-              setTimeout(() => el.classList.add("visible"), i * 100);
-            });
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
+  const sectionRef = useRevealObserver<HTMLElement>();
 
   return (
     <section id="servizi" ref={sectionRef} className="bg-[oklch(0.97_0.012_85)]">
@@ -127,11 +111,11 @@ export default function Servizi() {
                       <div
                         className="w-10 h-10 flex items-center justify-center"
                         style={{
-                          background: `oklch(${s.accentColor.replace("oklch(", "").replace(")", "")} / 0.12)`,
+                          background: `oklch(${s.accentColor} / 0.12)`,
                           borderRadius: "2px",
                         }}
                       >
-                        <s.icon size={20} style={{ color: `oklch(${s.accentColor.replace("oklch(", "").replace(")", "")})` }} />
+                        <s.icon size={20} style={{ color: `oklch(${s.accentColor})` }} />
                       </div>
                       <span className="badge-terracotta">{s.sottotitolo}</span>
                     </div>
@@ -152,7 +136,7 @@ export default function Servizi() {
                         >
                           <CheckCircle2
                             size={16}
-                            style={{ color: `oklch(${s.accentColor.replace("oklch(", "").replace(")", "")})` }}
+                            style={{ color: `oklch(${s.accentColor})` }}
                             className="shrink-0"
                           />
                           {v}
@@ -161,9 +145,9 @@ export default function Servizi() {
                     </ul>
 
                     <button
-                      onClick={() => document.querySelector("#contatti")?.scrollIntoView({ behavior: "smooth" })}
+                      onClick={() => scrollToSection("#contatti")}
                       className="reveal inline-flex items-center gap-2 font-['DM_Sans'] font-semibold text-sm tracking-wide group"
-                      style={{ color: `oklch(${s.accentColor.replace("oklch(", "").replace(")", "")})` }}
+                      style={{ color: `oklch(${s.accentColor})` }}
                     >
                       Richiedi un preventivo
                       <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-200" />
@@ -189,20 +173,20 @@ export default function Servizi() {
                     <div
                       className="w-full max-w-sm aspect-square flex items-center justify-center"
                       style={{
-                        background: `oklch(${s.accentColor.replace("oklch(", "").replace(")", "")} / 0.06)`,
+                        background: `oklch(${s.accentColor} / 0.06)`,
                         borderRadius: "2px",
-                        border: `1px solid oklch(${s.accentColor.replace("oklch(", "").replace(")", "")} / 0.15)`,
+                        border: `1px solid oklch(${s.accentColor} / 0.15)`,
                       }}
                     >
                       <div className="text-center p-8">
                         <s.icon
                           size={80}
-                          style={{ color: `oklch(${s.accentColor.replace("oklch(", "").replace(")", "")} / 0.3)` }}
+                          style={{ color: `oklch(${s.accentColor} / 0.3)` }}
                           className="mx-auto mb-4"
                         />
                         <div
                           className="font-['DM_Mono'] text-6xl font-medium"
-                          style={{ color: `oklch(${s.accentColor.replace("oklch(", "").replace(")", "")} / 0.15)` }}
+                          style={{ color: `oklch(${s.accentColor} / 0.15)` }}
                         >
                           {s.num}
                         </div>

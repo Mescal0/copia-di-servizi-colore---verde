@@ -5,11 +5,11 @@
  * Logo + link + info legali
  */
 import { Phone, Mail, MapPin, Facebook, Instagram } from "lucide-react";
+import { scrollToSection } from "@/lib/scrollToSection";
 
 export default function Footer() {
   const handleNavClick = (href: string) => {
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+    scrollToSection(href);
   };
 
   return (

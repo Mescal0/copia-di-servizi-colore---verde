@@ -4,6 +4,7 @@
  * Sfondo: sabbia chiaro
  * Hover: overlay verde oliva con titolo
  */
+import { useRevealObserver } from "@/hooks/useRevealObserver";
 import { useEffect, useRef, useState } from "react";
 import { X } from "lucide-react";
 
@@ -83,26 +84,10 @@ const lavori = [
 const categorie = ["Tutti", "Imbiancatura", "Verniciatura", "Verde"];
 
 export default function Galleria() {
-  const sectionRef = useRef<HTMLElement>(null);
+  const sectionRef = useRevealObserver<HTMLElement>(80);
   const [filtro, setFiltro] = useState("Tutti");
   const [lightbox, setLightbox] = useState<typeof lavori[0] | null>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.querySelectorAll(".reveal").forEach((el, i) => {
-              setTimeout(() => el.classList.add("visible"), i * 80);
-            });
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
+  const closeBtnRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
@@ -111,6 +96,10 @@ export default function Galleria() {
     window.addEventListener("keydown", handleKey);
     return () => window.removeEventListener("keydown", handleKey);
   }, []);
+
+  useEffect(() => {
+    if (lightbox) closeBtnRef.current?.focus();
+  }, [lightbox]);
 
   const filtrati = filtro === "Tutti" ? lavori : lavori.filter((l) => l.categoria === filtro);
 
@@ -176,12 +165,17 @@ export default function Galleria() {
       {/* Lightbox */}
       {lightbox && (
         <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={lightbox.titolo}
           className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
           onClick={() => setLightbox(null)}
         >
           <button
+            ref={closeBtnRef}
             className="absolute top-4 right-4 text-white/70 hover:text-white transition-colors"
             onClick={() => setLightbox(null)}
+            aria-label="Chiudi"
           >
             <X size={32} />
           </button>
