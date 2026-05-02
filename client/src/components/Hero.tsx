@@ -4,24 +4,11 @@
  * Sfondo: verde oliva scuro con texture
  * Tipografia: Playfair Display molto grande, DM Sans per sottotitolo
  */
-import { useEffect, useRef } from "react";
 import { ArrowDown, CheckCircle } from "lucide-react";
 
 const HERO_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663539711843/HaeMCGMei4PNfU2Mfmv3UP/hero-painting-YwXPA9dS8FQUHFSfAxAHB8.webp";
 
 export default function Hero() {
-  const textRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      if (textRef.current) {
-        textRef.current.style.opacity = "1";
-        textRef.current.style.transform = "translateY(0)";
-      }
-    }, 100);
-    return () => clearTimeout(timer);
-  }, []);
-
   const scrollToServizi = () => {
     document.querySelector("#servizi")?.scrollIntoView({ behavior: "smooth" });
   };
@@ -45,12 +32,7 @@ export default function Hero() {
       <div className="relative z-10 container pt-24 pb-20">
         <div className="max-w-2xl">
           <div
-            ref={textRef}
-            style={{
-              opacity: 0,
-              transform: "translateY(32px)",
-              transition: "opacity 0.9s ease, transform 0.9s ease",
-            }}
+            className="animate-hero-fade-in"
           >
             {/* Badge */}
             <span className="badge-terracotta mb-6 inline-block">
