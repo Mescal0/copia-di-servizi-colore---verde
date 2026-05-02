@@ -98,7 +98,7 @@ export default function Testimonianze() {
       setDirection(1);
       setCurrent((c) => (c + 1) % total);
     }, 6000);
-  }, [total]);
+  }, [total, setDirection, setCurrent]);
 
   // Auto-avanzamento ogni 6s
   useEffect(() => {

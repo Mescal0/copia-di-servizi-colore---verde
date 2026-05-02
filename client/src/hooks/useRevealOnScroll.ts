@@ -25,7 +25,10 @@ export function useRevealOnScroll<T extends HTMLElement = HTMLElement>(
     );
 
     if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
+    return () => {
+      if (ref.current) observer.unobserve(ref.current);
+      observer.disconnect();
+    };
   }, [threshold, staggerMs]);
 
   return ref;
