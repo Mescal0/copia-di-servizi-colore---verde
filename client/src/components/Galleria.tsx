@@ -4,8 +4,9 @@
  * Sfondo: sabbia chiaro
  * Hover: overlay verde oliva con titolo
  */
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { X } from "lucide-react";
+import { useRevealOnScroll } from "@/hooks/useRevealOnScroll";
 
 const lavori = [
   {
@@ -83,26 +84,9 @@ const lavori = [
 const categorie = ["Tutti", "Imbiancatura", "Verniciatura", "Verde"];
 
 export default function Galleria() {
-  const sectionRef = useRef<HTMLElement>(null);
+  const sectionRef = useRevealOnScroll<HTMLElement>();
   const [filtro, setFiltro] = useState("Tutti");
   const [lightbox, setLightbox] = useState<typeof lavori[0] | null>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.querySelectorAll(".reveal").forEach((el, i) => {
-              setTimeout(() => el.classList.add("visible"), i * 80);
-            });
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
 
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
@@ -180,6 +164,7 @@ export default function Galleria() {
           onClick={() => setLightbox(null)}
         >
           <button
+            aria-label="Chiudi immagine"
             className="absolute top-4 right-4 text-white/70 hover:text-white transition-colors"
             onClick={() => setLightbox(null)}
           >

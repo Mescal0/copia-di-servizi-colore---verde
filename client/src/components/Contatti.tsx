@@ -5,10 +5,11 @@
  * Sfondo: bianco calce
  * Notifica al titolare via tRPC (notifyOwner) ad ogni invio preventivo
  */
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import { trpc } from "@/lib/trpc";
+import { useRevealOnScroll } from "@/hooks/useRevealOnScroll";
 
 const contatti = [
   { icon: Phone, label: "Telefono", valore: "+39 338 453 1102", href: "tel:+393384531102" },
@@ -18,7 +19,7 @@ const contatti = [
 ];
 
 export default function Contatti() {
-  const sectionRef = useRef<HTMLElement>(null);
+  const sectionRef = useRevealOnScroll<HTMLElement>();
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({
     nome: "",
@@ -37,23 +38,6 @@ export default function Contatti() {
       toast.error(`Errore nell'invio: ${err.message}. Prova a chiamarci direttamente.`);
     },
   });
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.querySelectorAll(".reveal").forEach((el, i) => {
-              setTimeout(() => el.classList.add("visible"), i * 100);
-            });
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -163,10 +147,11 @@ export default function Contatti() {
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div>
-                    <label className="block font-['DM_Sans'] text-xs font-semibold text-[oklch(0.32_0.01_65)] uppercase tracking-wide mb-1.5">
+                    <label htmlFor="nome" className="block font-['DM_Sans'] text-xs font-semibold text-[oklch(0.32_0.01_65)] uppercase tracking-wide mb-1.5">
                       Nome e Cognome <span className="text-[oklch(0.58_0.13_45)]">*</span>
                     </label>
                     <input
+                      id="nome"
                       type="text"
                       name="nome"
                       value={form.nome}
@@ -181,10 +166,11 @@ export default function Contatti() {
 
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="block font-['DM_Sans'] text-xs font-semibold text-[oklch(0.32_0.01_65)] uppercase tracking-wide mb-1.5">
+                      <label htmlFor="telefono" className="block font-['DM_Sans'] text-xs font-semibold text-[oklch(0.32_0.01_65)] uppercase tracking-wide mb-1.5">
                         Telefono <span className="text-[oklch(0.58_0.13_45)]">*</span>
                       </label>
                       <input
+                        id="telefono"
                         type="tel"
                         name="telefono"
                         value={form.telefono}
@@ -197,10 +183,11 @@ export default function Contatti() {
                       />
                     </div>
                     <div>
-                      <label className="block font-['DM_Sans'] text-xs font-semibold text-[oklch(0.32_0.01_65)] uppercase tracking-wide mb-1.5">
+                      <label htmlFor="email" className="block font-['DM_Sans'] text-xs font-semibold text-[oklch(0.32_0.01_65)] uppercase tracking-wide mb-1.5">
                         Email
                       </label>
                       <input
+                        id="email"
                         type="email"
                         name="email"
                         value={form.email}
@@ -214,10 +201,11 @@ export default function Contatti() {
                   </div>
 
                   <div>
-                    <label className="block font-['DM_Sans'] text-xs font-semibold text-[oklch(0.32_0.01_65)] uppercase tracking-wide mb-1.5">
+                    <label htmlFor="servizio" className="block font-['DM_Sans'] text-xs font-semibold text-[oklch(0.32_0.01_65)] uppercase tracking-wide mb-1.5">
                       Servizio Richiesto <span className="text-[oklch(0.58_0.13_45)]">*</span>
                     </label>
                     <select
+                      id="servizio"
                       name="servizio"
                       value={form.servizio}
                       onChange={handleChange}
@@ -235,10 +223,11 @@ export default function Contatti() {
                   </div>
 
                   <div>
-                    <label className="block font-['DM_Sans'] text-xs font-semibold text-[oklch(0.32_0.01_65)] uppercase tracking-wide mb-1.5">
+                    <label htmlFor="messaggio" className="block font-['DM_Sans'] text-xs font-semibold text-[oklch(0.32_0.01_65)] uppercase tracking-wide mb-1.5">
                       Descrivi il lavoro
                     </label>
                     <textarea
+                      id="messaggio"
                       name="messaggio"
                       value={form.messaggio}
                       onChange={handleChange}

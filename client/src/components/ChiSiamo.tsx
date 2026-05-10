@@ -4,8 +4,8 @@
  * Numerazione grande semitrasparente come elemento grafico
  * Accent terracotta per highlights
  */
-import { useEffect, useRef } from "react";
 import { Award, Leaf, Paintbrush, Users } from "lucide-react";
+import { useRevealOnScroll } from "@/hooks/useRevealOnScroll";
 
 const VERNICIATURA_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663539711843/HaeMCGMei4PNfU2Mfmv3UP/hero-verniciatura-iLZHgVHQvLF4XEYbbaQHXe.webp";
 
@@ -17,24 +17,7 @@ const values = [
 ];
 
 export default function ChiSiamo() {
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.querySelectorAll(".reveal").forEach((el, i) => {
-              setTimeout(() => el.classList.add("visible"), i * 120);
-            });
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
+  const sectionRef = useRevealOnScroll<HTMLElement>({ threshold: 0.15, staggerMs: 120 });
 
   return (
     <section id="chi-siamo" ref={sectionRef} className="py-24 lg:py-32 bg-[oklch(0.97_0.012_85)]">
