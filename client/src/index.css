@@ -226,7 +226,8 @@
 ═══════════════════════════════════════════════════════════════════ */
 
 @media screen and (max-width: 720px) {
-  #cookiebanner a.c-button {
+  #cookiebanner a.c-button,
+  #cookiebanner button.c-button {
     width: 100%;
     box-sizing: border-box;
     text-align: center;
@@ -261,6 +262,7 @@
   padding: 25px 40px;
   position: fixed;
   z-index: 2147483645;
+  /* starts fully off-screen below the viewport; JS animates it into view */
   bottom: -800px;
 }
 #cookiebanner p {
@@ -284,7 +286,8 @@
 #cookiebanner a:hover {
   color: #fff;
 }
-#cookiebanner a.c-button {
+#cookiebanner a.c-button,
+#cookiebanner button.c-button {
   border-radius: 4px;
   background-color: rgb(255, 255, 255);
   box-shadow: 0 2px 0 0 rgb(221, 221, 221);
@@ -296,13 +299,16 @@
   margin-top: 10px;
   color: #666;
   font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
   -o-transition: 0.2s;
   -ms-transition: 0.2s;
   -moz-transition: 0.2s;
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
-#cookiebanner a.c-button:hover {
+#cookiebanner a.c-button:hover,
+#cookiebanner button.c-button:hover {
   box-shadow: none;
   background-color: #f8f8f8;
 }

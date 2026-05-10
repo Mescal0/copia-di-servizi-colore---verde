@@ -20,14 +20,14 @@ export default function CookieBanner() {
     let timerId: ReturnType<typeof setTimeout>;
 
     function animate() {
-      const h = el!.offsetHeight;
-      el!.style.bottom = pos - h + "px";
+      const h = el.offsetHeight;
+      el.style.bottom = pos - h + "px";
       pos += 4;
       if (pos < h) {
         timerId = setTimeout(animate, 1);
       } else {
         pos = 0;
-        el!.style.bottom = "0px";
+        el.style.bottom = "0px";
       }
     }
 
@@ -36,9 +36,8 @@ export default function CookieBanner() {
   }, [show]);
 
   function hideBanner() {
-    const el = bannerRef.current;
-    if (el) el.style.display = "none";
     localStorage.setItem(STORAGE_KEY, "true");
+    setShow(false);
   }
 
   if (!show) return null;
@@ -53,16 +52,9 @@ export default function CookieBanner() {
         </p>
       </div>
       <div id="c-right">
-        <a
-          href="#"
-          className="c-button"
-          onClick={(e) => {
-            e.preventDefault();
-            hideBanner();
-          }}
-        >
+        <button className="c-button" onClick={hideBanner}>
           Accetta
-        </a>
+        </button>
       </div>
     </div>
   );
