@@ -220,3 +220,89 @@
     transform: translateY(0);
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════════
+   COOKIE BANNER
+═══════════════════════════════════════════════════════════════════ */
+
+@media screen and (max-width: 720px) {
+  #cookiebanner a.c-button {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  #c-right {
+    float: none;
+  }
+  #c-left {
+    float: none;
+  }
+  #cookiebanner p.c-message {
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  #cookiebanner #c-left {
+    float: left;
+    max-width: 80%;
+  }
+  #cookiebanner #c-right {
+    float: right;
+  }
+}
+
+#cookiebanner {
+  box-sizing: border-box;
+  background-color: rgb(36, 36, 39);
+  opacity: 0.9;
+  width: 100%;
+  padding: 25px 40px;
+  position: fixed;
+  z-index: 2147483645;
+  bottom: -800px;
+}
+#cookiebanner p {
+  font-size: 14px;
+  line-height: 1.4;
+}
+#cookiebanner .c-header {
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+#cookiebanner p.c-message {
+  font-size: 14px;
+  color: #999;
+}
+#cookiebanner a {
+  font-weight: bold;
+  color: #999;
+}
+#cookiebanner a:hover {
+  color: #fff;
+}
+#cookiebanner a.c-button {
+  border-radius: 4px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 2px 0 0 rgb(221, 221, 221);
+  border: 1px solid rgb(221, 221, 221);
+  padding: 12px 60px;
+  text-decoration: none;
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: 10px;
+  color: #666;
+  font-size: 16px;
+  -o-transition: 0.2s;
+  -ms-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+#cookiebanner a.c-button:hover {
+  box-shadow: none;
+  background-color: #f8f8f8;
+}
