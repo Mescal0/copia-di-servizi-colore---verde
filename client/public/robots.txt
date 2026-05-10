@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://serviziverde-7mfbsxe2.manus.space/sitemap.xml
