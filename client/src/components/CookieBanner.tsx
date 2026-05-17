@@ -20,6 +20,7 @@ export default function CookieBanner() {
     let timerId: ReturnType<typeof setTimeout>;
 
     function animate() {
+      if (!el) return;
       const h = el.offsetHeight;
       el.style.bottom = pos - h + "px";
       pos += 4;

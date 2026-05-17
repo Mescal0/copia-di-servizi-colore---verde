@@ -6,10 +6,11 @@
  * Notifica al titolare via tRPC (notifyOwner) ad ogni invio preventivo
  */
 import { useState } from "react";
-import { Phone, Mail, MapPin, Clock, Send, CheckCircle, Loader2 } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Send, CheckCircle, Loader2, Calendar } from "lucide-react";
 import { toast } from "sonner";
 import { trpc } from "@/lib/trpc";
 import { useRevealOnScroll } from "@/hooks/useRevealOnScroll";
+import { MapView } from "@/components/Map";
 
 const contatti = [
   { icon: Phone, label: "Telefono", valore: "+39 338 453 1102", href: "tel:+393384531102" },
@@ -105,19 +106,53 @@ export default function Contatti() {
               ))}
             </div>
 
-            {/* Decorative element */}
-            <div
-              className="reveal mt-12 p-6 bg-[oklch(0.35_0.08_145)] text-white"
-              style={{ borderRadius: "2px" }}
-            >
-              <div className="font-['Playfair_Display'] text-lg font-semibold mb-2">
-                Preventivo sempre gratuito
-              </div>
-              <p className="font-['DM_Sans'] text-sm text-white/80 leading-relaxed">
-                Sopralluogo gratuito entro 48 ore dalla richiesta. Nessun costo nascosto, nessun impegno.
-              </p>
+          {/* Decorative element */}
+          <div
+            className="reveal mt-12 p-6 bg-[oklch(0.35_0.08_145)] text-white"
+            style={{ borderRadius: "2px" }}
+          >
+            <div className="font-['Playfair_Display'] text-lg font-semibold mb-2">
+              Preventivo sempre gratuito
+            </div>
+            <p className="font-['DM_Sans'] text-sm text-white/80 leading-relaxed">
+              Sopralluogo gratuito entro 48 ore dalla richiesta. Nessun costo nascosto, nessun impegno.
+            </p>
+          </div>
+
+          {/* Google Maps */}
+          <div className="reveal mt-8">
+            <div className="font-['DM_Sans'] text-xs font-semibold text-[oklch(0.32_0.01_65)] uppercase tracking-wide mb-3 flex items-center gap-2">
+              <MapPin size={14} className="text-[oklch(0.35_0.08_145)]" />
+              Zona di Intervento — Pistoia e Provincia
+            </div>
+            <div className="overflow-hidden" style={{ borderRadius: "2px", height: "220px" }}>
+              <MapView
+                className="w-full h-full"
+                initialCenter={{ lat: 43.9308, lng: 10.9078 }}
+                initialZoom={11}
+                onMapReady={(map) => {
+                  const marker = new google.maps.marker.AdvancedMarkerElement({
+                    map,
+                    position: { lat: 43.9308, lng: 10.9078 },
+                    title: "Colore & Verde — Pistoia",
+                  });
+                  const circle = new google.maps.Circle({
+                    map,
+                    center: { lat: 43.9308, lng: 10.9078 },
+                    radius: 25000,
+                    fillColor: "#2e5c38",
+                    fillOpacity: 0.12,
+                    strokeColor: "#2e5c38",
+                    strokeOpacity: 0.5,
+                    strokeWeight: 2,
+                  });
+                  void marker;
+                  void circle;
+                }}
+              />
             </div>
           </div>
+        </div>
 
           {/* Right: form */}
           <div className="reveal">
@@ -263,6 +298,26 @@ export default function Contatti() {
                   </p>
                 </form>
               )}
+            </div>
+
+            {/* Cal.com booking widget */}
+            <div className="reveal mt-6 border border-[oklch(0.88_0.018_80)] bg-white overflow-hidden" style={{ borderRadius: "2px" }}>
+              <div className="px-6 pt-5 pb-3 border-b border-[oklch(0.93_0.015_80)] flex items-center gap-3">
+                <div className="w-8 h-8 bg-[oklch(0.35_0.08_145/0.1)] flex items-center justify-center" style={{ borderRadius: "2px" }}>
+                  <Calendar size={16} className="text-[oklch(0.35_0.08_145)]" />
+                </div>
+                <div>
+                  <div className="font-['Playfair_Display'] text-base font-semibold text-[oklch(0.22_0.008_65)]">Prenota un Sopralluogo</div>
+                  <div className="font-['DM_Sans'] text-xs text-[oklch(0.52_0.02_65)]">Scegli giorno e ora direttamente nel calendario</div>
+                </div>
+              </div>
+              <iframe
+                src="https://cal.com/marco-baldi-mescal0-etauwe?embed=true&theme=light&brandColor=2e5c38"
+                className="w-full"
+                style={{ height: "500px", border: "none" }}
+                title="Prenota un sopralluogo con Colore & Verde"
+                loading="lazy"
+              />
             </div>
           </div>
         </div>
