@@ -97,15 +97,27 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin size={15} className="text-[oklch(0.58_0.13_45)] shrink-0 mt-0.5" />
                 <span className="font-['DM_Sans'] text-sm text-white/60">
-                  Pistoia e Provincia
+                  Valdinievole e Pistoia
                 </span>
               </li>
             </ul>
 
             {/* CTA */}
+            <a
+              href={`https://wa.me/393384531102?text=${encodeURIComponent("Salve! Sono nella zona della Valdinievole e ho bisogno di un imbianchino/giardiniere. Potete fissarmi un appuntamento gratuito di valutazione dell'intervento?")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 w-full py-3 bg-[#25D366] text-white font-['DM_Sans'] font-semibold text-sm tracking-wide hover:bg-[#1ebe5d] transition-colors duration-200 flex items-center justify-center gap-2"
+              style={{ borderRadius: "2px" }}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" className="w-4 h-4 shrink-0" fill="white" aria-hidden="true">
+                <path d="M16.003 2.667C8.637 2.667 2.667 8.637 2.667 16c0 2.352.627 4.655 1.817 6.677L2.667 29.333l6.843-1.793A13.27 13.27 0 0 0 16.003 29.333c7.363 0 13.33-5.97 13.33-13.333S23.366 2.667 16.003 2.667zm0 24.267a11.04 11.04 0 0 1-5.627-1.543l-.403-.24-4.063 1.063 1.083-3.953-.263-.417A10.99 10.99 0 0 1 5.003 16c0-6.067 4.933-11 11-11s11 4.933 11 11-4.933 11-11 11zm6.053-8.24c-.333-.167-1.967-.97-2.27-1.08-.303-.113-.523-.167-.743.167-.22.333-.853 1.08-1.047 1.3-.193.22-.387.247-.72.083-.333-.167-1.407-.52-2.68-1.653-.99-.883-1.66-1.973-1.853-2.307-.193-.333-.02-.513.147-.68.15-.15.333-.387.5-.58.167-.193.22-.333.333-.553.113-.22.057-.413-.027-.58-.083-.167-.743-1.793-1.017-2.453-.267-.643-.54-.557-.743-.567l-.633-.013c-.22 0-.58.083-.883.413-.303.333-1.157 1.13-1.157 2.757s1.183 3.197 1.35 3.417c.167.22 2.33 3.56 5.647 4.993.79.34 1.407.543 1.887.697.793.25 1.513.213 2.083.13.633-.097 1.967-.803 2.243-1.58.277-.777.277-1.44.193-1.58-.08-.14-.3-.22-.633-.387z" />
+              </svg>
+              WhatsApp — Appuntamento Gratuito
+            </a>
             <button
               onClick={() => handleNavClick("#contatti")}
-              className="mt-6 w-full py-3 bg-[oklch(0.35_0.08_145)] text-white font-['DM_Sans'] font-semibold text-sm tracking-wide hover:bg-[oklch(0.42_0.09_145)] transition-colors duration-200"
+              className="mt-3 w-full py-3 bg-[oklch(0.35_0.08_145)] text-white font-['DM_Sans'] font-semibold text-sm tracking-wide hover:bg-[oklch(0.42_0.09_145)] transition-colors duration-200"
               style={{ borderRadius: "2px" }}
             >
               Preventivo Gratuito

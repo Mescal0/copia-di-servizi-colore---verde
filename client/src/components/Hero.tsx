@@ -51,7 +51,7 @@ export default function Hero() {
 
             {/* Subtitle */}
             <p className="font-['DM_Sans'] text-lg text-white/80 leading-relaxed mb-8 max-w-lg">
-              Imbiancatura, verniciatura e servizi per il verde a <strong className="font-semibold text-white">Pistoia e Provincia</strong>. Trasformiamo i tuoi spazi con cura, precisione e materiali di qualità.
+              Imbiancatura, verniciatura e servizi per il verde nella <strong className="font-semibold text-white">Valdinievole</strong> e <strong className="font-semibold text-white">Pistoia</strong>. Trasformiamo i tuoi spazi con cura, precisione e materiali di qualità.
             </p>
 
             {/* Trust points */}
@@ -73,13 +73,18 @@ export default function Hero() {
               >
                 Richiedi Preventivo Gratis
               </button>
-              <button
-                onClick={() => document.querySelector("#servizi")?.scrollIntoView({ behavior: "smooth" })}
-                className="inline-flex items-center justify-center gap-2 border-2 border-white/60 text-white px-8 py-4 font-['DM_Sans'] font-medium text-base tracking-wide hover:border-white hover:bg-white/10 transition-all duration-300"
+              <a
+                href={`https://wa.me/393384531102?text=${encodeURIComponent("Salve! Sono nella zona della Valdinievole e ho bisogno di un imbianchino/giardiniere. Potete fissarmi un appuntamento gratuito di valutazione dell'intervento?")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 border-2 border-[#25D366] text-white px-8 py-4 font-['DM_Sans'] font-medium text-base tracking-wide hover:bg-[#25D366]/20 transition-all duration-300"
                 style={{ borderRadius: "2px" }}
               >
-                Scopri i Servizi
-              </button>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" className="w-5 h-5 shrink-0" fill="#25D366" aria-hidden="true">
+                  <path d="M16.003 2.667C8.637 2.667 2.667 8.637 2.667 16c0 2.352.627 4.655 1.817 6.677L2.667 29.333l6.843-1.793A13.27 13.27 0 0 0 16.003 29.333c7.363 0 13.33-5.97 13.33-13.333S23.366 2.667 16.003 2.667zm0 24.267a11.04 11.04 0 0 1-5.627-1.543l-.403-.24-4.063 1.063 1.083-3.953-.263-.417A10.99 10.99 0 0 1 5.003 16c0-6.067 4.933-11 11-11s11 4.933 11 11-4.933 11-11 11zm6.053-8.24c-.333-.167-1.967-.97-2.27-1.08-.303-.113-.523-.167-.743.167-.22.333-.853 1.08-1.047 1.3-.193.22-.387.247-.72.083-.333-.167-1.407-.52-2.68-1.653-.99-.883-1.66-1.973-1.853-2.307-.193-.333-.02-.513.147-.68.15-.15.333-.387.5-.58.167-.193.22-.333.333-.553.113-.22.057-.413-.027-.58-.083-.167-.743-1.793-1.017-2.453-.267-.643-.54-.557-.743-.567l-.633-.013c-.22 0-.58.083-.883.413-.303.333-1.157 1.13-1.157 2.757s1.183 3.197 1.35 3.417c.167.22 2.33 3.56 5.647 4.993.79.34 1.407.543 1.887.697.793.25 1.513.213 2.083.13.633-.097 1.967-.803 2.243-1.58.277-.777.277-1.44.193-1.58-.08-.14-.3-.22-.633-.387z" />
+                </svg>
+                WhatsApp — Valdinievole
+              </a>
             </div>
           </div>
         </div>

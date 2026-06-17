@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const WHATSAPP_NUMBER = "393384531102";
 const WHATSAPP_MESSAGE = encodeURIComponent(
-  "Salve! Ho visitato il vostro sito e vorrei richiedere un preventivo gratuito."
+  "Salve! Sono nella zona della Valdinievole e ho bisogno di un imbianchino/giardiniere. Potete fissarmi un appuntamento gratuito di valutazione dell'intervento?"
 );
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`;
 
@@ -28,7 +28,7 @@ export default function WhatsAppButton() {
             className="bg-[oklch(0.18_0.006_65)] text-white font-['DM_Sans'] text-sm font-medium px-4 py-2.5 shadow-lg whitespace-nowrap pointer-events-none"
             style={{ borderRadius: "4px" }}
           >
-            Scrivici su WhatsApp
+            Scrivici su WhatsApp — Sopralluogo Gratuito
             {/* Arrow */}
             <span
               className="absolute right-[-6px] top-1/2 -translate-y-1/2 border-y-[6px] border-y-transparent border-l-[6px] border-l-[oklch(0.18_0.006_65)]"

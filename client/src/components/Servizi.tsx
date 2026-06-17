@@ -22,7 +22,7 @@ const servizi = [
     titolo: "Imbiancatura",
     sottotitolo: "Interni & Esterni",
     descrizione:
-      "Vuoi imbiancare casa a Pistoia? Eseguiamo tinteggiatura professionale di pareti e soffitti con pitture di alta qualità. Lavoriamo su appartamenti, ville, uffici e condomini con cura e precisione.",
+      "Cerchi un imbianchino nella Valdinievole o a Pistoia? Eseguiamo tinteggiatura professionale di pareti e soffitti con pitture di alta qualità. Lavoriamo su appartamenti, ville, uffici e condomini con cura e precisione.",
     voci: [
       "Tinteggiatura pareti e soffitti",
       "Pitture decorative e stucchi",
@@ -39,7 +39,7 @@ const servizi = [
     titolo: "Verniciatura",
     sottotitolo: "Legno, Ferro & Metalli",
     descrizione:
-      "Cerchi un verniciatore a Pistoia? Eseguiamo verniciatura professionale di infissi, porte, cancelli, ringhiere e strutture metalliche. Ripristino e protezione di ogni superficie con prodotti certificati.",
+      "Cerchi un verniciatore nella Valdinievole o a Pistoia? Eseguiamo verniciatura professionale di infissi, porte, cancelli, ringhiere e strutture metalliche. Ripristino e protezione di ogni superficie con prodotti certificati.",
     voci: [
       "Verniciatura infissi in legno",
       "Trattamento antiruggine",
@@ -56,7 +56,7 @@ const servizi = [
     titolo: "Servizi per il Verde",
     sottotitolo: "Giardini & Spazi Verdi",
     descrizione:
-      "Cerchi un giardiniere a Pistoia? Offriamo manutenzione e cura di giardini privati e condominiali. Potatura, taglio erba, piantumazione e progettazione di spazi verdi con attenzione all'ambiente.",
+      "Cerchi un giardiniere nella Valdinievole o a Pistoia? Offriamo manutenzione e cura di giardini privati e condominiali. Potatura, taglio erba, piantumazione e progettazione di spazi verdi con attenzione all'ambiente.",
     voci: [
       "Taglio e cura del prato",
       "Potatura alberi e siepi",

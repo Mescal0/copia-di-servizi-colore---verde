@@ -13,9 +13,9 @@ import { useRevealOnScroll } from "@/hooks/useRevealOnScroll";
 import { MapView } from "@/components/Map";
 
 const contatti = [
-  { icon: Phone, label: "Telefono", valore: "+39 338 453 1102", href: "tel:+393384531102" },
+  { icon: Phone, label: "Telefono / WhatsApp", valore: "+39 338 453 1102", href: "tel:+393384531102" },
   { icon: Mail, label: "Email", valore: "marco.baldi.24@gmail.com", href: "mailto:marco.baldi.24@gmail.com" },
-  { icon: MapPin, label: "Zona di Intervento", valore: "Pistoia e Provincia", href: "#" },
+  { icon: MapPin, label: "Zona di Intervento", valore: "Valdinievole e Pistoia", href: "#" },
   { icon: Clock, label: "Orari", valore: "Lun–Ven, 8:00–18:00", href: "#" },
 ];
 
@@ -76,7 +76,7 @@ export default function Contatti() {
               <span className="italic text-[oklch(0.35_0.08_145)]">tuo progetto</span>
             </h2>
             <p className="reveal font-['DM_Sans'] text-base text-[oklch(0.42_0.02_65)] leading-relaxed mb-10">
-              Cerchi un <strong className="font-semibold text-[oklch(0.22_0.008_65)]">imbianchino a Pistoia</strong> o un servizio di verniciatura professionale? Contattaci per un preventivo gratuito e senza impegno. Interveniamo su tutto il territorio di <strong className="font-semibold text-[oklch(0.22_0.008_65)]">Pistoia e Provincia</strong> entro 48 ore.
+              Sei nella <strong className="font-semibold text-[oklch(0.22_0.008_65)]">Valdinievole</strong> e cerchi un <strong className="font-semibold text-[oklch(0.22_0.008_65)]">imbianchino</strong> o un <strong className="font-semibold text-[oklch(0.22_0.008_65)]">giardiniere</strong>? Scrivici su WhatsApp o compila il modulo per fissare un <strong className="font-semibold text-[oklch(0.22_0.008_65)]">sopralluogo gratuito</strong> senza impegno. Interveniamo a Montecatini Terme, Pescia, Monsummano, Lamporecchio e in tutta la provincia di Pistoia entro 48 ore.
             </p>
 
             {/* Contact info */}
@@ -106,6 +106,35 @@ export default function Contatti() {
               ))}
             </div>
 
+          {/* WhatsApp CTA */}
+          <div
+            className="reveal mt-6 p-5 bg-[#25D366]/10 border border-[#25D366]/30 flex items-center gap-4"
+            style={{ borderRadius: "2px" }}
+          >
+            <div className="shrink-0 w-12 h-12 bg-[#25D366] flex items-center justify-center shadow-md" style={{ borderRadius: "50%" }}>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" className="w-6 h-6" fill="white" aria-hidden="true">
+                <path d="M16.003 2.667C8.637 2.667 2.667 8.637 2.667 16c0 2.352.627 4.655 1.817 6.677L2.667 29.333l6.843-1.793A13.27 13.27 0 0 0 16.003 29.333c7.363 0 13.33-5.97 13.33-13.333S23.366 2.667 16.003 2.667zm0 24.267a11.04 11.04 0 0 1-5.627-1.543l-.403-.24-4.063 1.063 1.083-3.953-.263-.417A10.99 10.99 0 0 1 5.003 16c0-6.067 4.933-11 11-11s11 4.933 11 11-4.933 11-11 11zm6.053-8.24c-.333-.167-1.967-.97-2.27-1.08-.303-.113-.523-.167-.743.167-.22.333-.853 1.08-1.047 1.3-.193.22-.387.247-.72.083-.333-.167-1.407-.52-2.68-1.653-.99-.883-1.66-1.973-1.853-2.307-.193-.333-.02-.513.147-.68.15-.15.333-.387.5-.58.167-.193.22-.333.333-.553.113-.22.057-.413-.027-.58-.083-.167-.743-1.793-1.017-2.453-.267-.643-.54-.557-.743-.567l-.633-.013c-.22 0-.58.083-.883.413-.303.333-1.157 1.13-1.157 2.757s1.183 3.197 1.35 3.417c.167.22 2.33 3.56 5.647 4.993.79.34 1.407.543 1.887.697.793.25 1.513.213 2.083.13.633-.097 1.967-.803 2.243-1.58.277-.777.277-1.44.193-1.58-.08-.14-.3-.22-.633-.387z" />
+              </svg>
+            </div>
+            <div className="flex-1">
+              <div className="font-['DM_Sans'] font-semibold text-sm text-[oklch(0.22_0.008_65)] mb-0.5">
+                Sei nella Valdinievole? Scrivici su WhatsApp
+              </div>
+              <p className="font-['DM_Sans'] text-xs text-[oklch(0.42_0.02_65)] leading-relaxed">
+                Mandaci un messaggio per descrivere il lavoro che ti serve. Fissiamo subito un <strong>appuntamento gratuito</strong> di valutazione.
+              </p>
+            </div>
+            <a
+              href={`https://wa.me/393384531102?text=${encodeURIComponent("Salve! Sono nella zona della Valdinievole e ho bisogno di un imbianchino/giardiniere. Potete fissarmi un appuntamento gratuito di valutazione dell'intervento?")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="shrink-0 inline-flex items-center gap-2 bg-[#25D366] text-white px-4 py-2.5 font-['DM_Sans'] font-semibold text-sm hover:bg-[#1ebe5d] transition-colors duration-200"
+              style={{ borderRadius: "2px" }}
+            >
+              Scrivi ora
+            </a>
+          </div>
+
           {/* Decorative element */}
           <div
             className="reveal mt-12 p-6 bg-[oklch(0.35_0.08_145)] text-white"
@@ -123,7 +152,7 @@ export default function Contatti() {
           <div className="reveal mt-8">
             <div className="font-['DM_Sans'] text-xs font-semibold text-[oklch(0.32_0.01_65)] uppercase tracking-wide mb-3 flex items-center gap-2">
               <MapPin size={14} className="text-[oklch(0.35_0.08_145)]" />
-              Zona di Intervento — Pistoia e Provincia
+              Zona di Intervento — Valdinievole e Pistoia
             </div>
             <div className="overflow-hidden" style={{ borderRadius: "2px", height: "220px" }}>
               <MapView

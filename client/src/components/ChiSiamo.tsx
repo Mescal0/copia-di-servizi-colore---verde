@@ -59,7 +59,7 @@ export default function ChiSiamo() {
               </h2>
 
               <p className="reveal font-['DM_Sans'] text-base text-[oklch(0.42_0.02_65)] leading-relaxed mb-4">
-                Siamo un'impresa artigiana con oltre vent'anni di esperienza nei settori dell'imbiancatura, verniciatura e cura del verde a <strong className="font-semibold text-[oklch(0.22_0.008_65)]">Pistoia e Provincia</strong>. Lavoriamo con privati, condomini e aziende su tutto il territorio, portando la stessa dedizione in ogni cantiere.
+                Siamo un'impresa artigiana con oltre vent'anni di esperienza nei settori dell'imbiancatura, verniciatura e cura del verde nella <strong className="font-semibold text-[oklch(0.22_0.008_65)]">Valdinievole</strong> e <strong className="font-semibold text-[oklch(0.22_0.008_65)]">Pistoia</strong>. Operiamo a Montecatini Terme, Pescia, Monsummano Terme, Lamporecchio e in tutta la provincia, portando la stessa dedizione in ogni cantiere.
               </p>
 
               <p className="reveal font-['DM_Sans'] text-base text-[oklch(0.42_0.02_65)] leading-relaxed mb-10">
