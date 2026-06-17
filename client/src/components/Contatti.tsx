@@ -76,7 +76,7 @@ export default function Contatti() {
               <span className="italic text-[oklch(0.35_0.08_145)]">tuo progetto</span>
             </h2>
             <p className="reveal font-['DM_Sans'] text-base text-[oklch(0.42_0.02_65)] leading-relaxed mb-10">
-              Sei nella <strong className="font-semibold text-[oklch(0.22_0.008_65)]">Valdinievole</strong> e cerchi un <strong className="font-semibold text-[oklch(0.22_0.008_65)]">imbianchino</strong> o un <strong className="font-semibold text-[oklch(0.22_0.008_65)]">giardiniere</strong>? Scrivici su WhatsApp o compila il modulo per fissare un <strong className="font-semibold text-[oklch(0.22_0.008_65)]">sopralluogo gratuito</strong> senza impegno. Interveniamo a Montecatini Terme, Pescia, Monsummano, Lamporecchio e in tutta la provincia di Pistoia entro 48 ore.
+              Sei nella <strong className="font-semibold text-[oklch(0.22_0.008_65)]">Valdinievole</strong> e cerchi un <strong className="font-semibold text-[oklch(0.22_0.008_65)]">imbianchino</strong> o un <strong className="font-semibold text-[oklch(0.22_0.008_65)]">giardiniere</strong>? Scrivici su WhatsApp o compila il modulo per fissare un <strong className="font-semibold text-[oklch(0.22_0.008_65)]">sopralluogo gratuito</strong> senza impegno. Interveniamo a Montecatini Terme, Pescia, Monsummano Terme, Lamporecchio e in tutta la provincia di Pistoia entro 48 ore.
             </p>
 
             {/* Contact info */}
