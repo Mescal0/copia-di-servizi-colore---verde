@@ -5,6 +5,7 @@
  * Tipografia: Playfair Display molto grande, DM Sans per sottotitolo
  */
 import { ArrowDown, CheckCircle } from "lucide-react";
+import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 const HERO_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663539711843/HaeMCGMei4PNfU2Mfmv3UP/hero-painting-YwXPA9dS8FQUHFSfAxAHB8.webp";
 
@@ -46,7 +47,7 @@ export default function Hero() {
               <br />e Qualità
               <br />
               <span className="text-[oklch(0.58_0.13_45)]">Artigianale</span>
-              <span className="sr-only"> — Imbiancatura e Verniciatura a Pistoia</span>
+              <span className="sr-only"> — Imbiancatura e Verniciatura in Valdinievole e a Pistoia</span>
             </h1>
 
             {/* Subtitle */}
@@ -74,7 +75,7 @@ export default function Hero() {
                 Richiedi Preventivo Gratis
               </button>
               <a
-                href={`https://wa.me/393384531102?text=${encodeURIComponent("Salve! Sono nella zona della Valdinievole e ho bisogno di un imbianchino/giardiniere. Potete fissarmi un appuntamento gratuito di valutazione dell'intervento?")}`}
+                href={getWhatsAppUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 border-2 border-[#25D366] text-white px-8 py-4 font-['DM_Sans'] font-medium text-base tracking-wide hover:bg-[#25D366]/20 transition-all duration-300"

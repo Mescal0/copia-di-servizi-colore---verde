@@ -5,12 +5,9 @@
  */
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { getWhatsAppUrl } from "@/lib/whatsapp";
 
-const WHATSAPP_NUMBER = "393384531102";
-const WHATSAPP_MESSAGE = encodeURIComponent(
-  "Salve! Sono nella zona della Valdinievole e ho bisogno di un imbianchino/giardiniere. Potete fissarmi un appuntamento gratuito di valutazione dell'intervento?"
-);
-const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`;
+const WHATSAPP_URL = getWhatsAppUrl();
 
 export default function WhatsAppButton() {
   const [hovered, setHovered] = useState(false);

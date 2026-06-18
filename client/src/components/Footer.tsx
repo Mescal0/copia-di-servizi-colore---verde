@@ -5,6 +5,7 @@
  * Logo + link + info legali
  */
 import { Phone, Mail, MapPin, Facebook, Instagram } from "lucide-react";
+import { getWhatsAppUrl, whatsappDisplayNumber, whatsappPhoneHref } from "@/lib/whatsapp";
 
 export default function Footer() {
   const handleNavClick = (href: string) => {
@@ -84,8 +85,8 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <Phone size={15} className="text-[oklch(0.58_0.13_45)] shrink-0 mt-0.5" />
-                <a href="tel:+393384531102" className="font-['DM_Sans'] text-sm text-white/60 hover:text-white transition-colors duration-200">
-                  +39 338 453 1102
+                <a href={whatsappPhoneHref} className="font-['DM_Sans'] text-sm text-white/60 hover:text-white transition-colors duration-200">
+                  {whatsappDisplayNumber}
                 </a>
               </li>
               <li className="flex items-start gap-3">
@@ -104,7 +105,7 @@ export default function Footer() {
 
             {/* CTA */}
             <a
-              href={`https://wa.me/393384531102?text=${encodeURIComponent("Salve! Sono nella zona della Valdinievole e ho bisogno di un imbianchino/giardiniere. Potete fissarmi un appuntamento gratuito di valutazione dell'intervento?")}`}
+              href={getWhatsAppUrl()}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-6 w-full py-3 bg-[#25D366] text-white font-['DM_Sans'] font-semibold text-sm tracking-wide hover:bg-[#1ebe5d] transition-colors duration-200 flex items-center justify-center gap-2"
