@@ -1,0 +1,40 @@
+# Deploy automatico su Cloudflare Pages a ogni push.
+#
+# ⚠️ QUESTO FILE È OPZIONALE.
+# Il modo PIÙ SEMPLICE (consigliato) è collegare il repo a Cloudflare Pages
+# dalla dashboard (vedi README → "Deploy"): build command `node build.js`,
+# output `dist`. In quel caso NON serve questo workflow né alcun segreto.
+#
+# Usa questo file solo se preferisci gestire il deploy da GitHub Actions.
+# Richiede due Secrets nel repo (Settings → Secrets → Actions):
+#   CLOUDFLARE_API_TOKEN   (token con permesso "Cloudflare Pages: Edit")
+#   CLOUDFLARE_ACCOUNT_ID
+# e che tu abbia creato un progetto Pages con questo nome:
+#   PROJECT_NAME (sotto) ← cambialo col nome reale del tuo progetto Pages.
+
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}   # avvio manuale dal tab "Actions"
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Build
+        run: node build.js
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=colore-e-verde

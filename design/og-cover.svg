@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2e5c38"/>
+      <stop offset="1" stop-color="#21422a"/>
+    </linearGradient>
+    <linearGradient id="mark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3a734733"/>
+      <stop offset="1" stop-color="#21422a00"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- pennellate decorative -->
+  <g opacity="0.10" stroke="#f6f1e6" stroke-width="3" fill="none">
+    <path d="M740 -40 L1240 460" />
+    <path d="M800 -40 L1300 460" />
+    <path d="M860 -40 L1360 460" />
+    <path d="M920 -40 L1420 460" />
+  </g>
+  <!-- foglia grande -->
+  <path d="M1075 140c-150 16-215 120-215 270 150 0 250-86 250-235 0-14-12-37-35-35z" fill="#d99a4e" opacity="0.92"/>
+  <path d="M865 405c18-83 66-133 150-166" fill="none" stroke="#2e5c38" stroke-width="6" stroke-linecap="round"/>
+  <!-- marchio -->
+  <rect x="90" y="96" width="92" height="92" rx="22" fill="#f6f1e6"/>
+  <text x="136" y="160" font-family="Georgia, 'Times New Roman', serif" font-size="48" font-weight="700" fill="#21422a" text-anchor="middle">C<tspan fill="#c2683a">&amp;</tspan>V</text>
+  <!-- testo -->
+  <text x="92" y="300" font-family="Georgia, 'Times New Roman', serif" font-size="40" fill="#d99a4e" letter-spacing="3">ARTIGIANI A PISTOIA DAL 2005</text>
+  <text x="88" y="392" font-family="Georgia, 'Times New Roman', serif" font-size="92" font-weight="700" fill="#fffdf8">Imbianchino e</text>
+  <text x="88" y="486" font-family="Georgia, 'Times New Roman', serif" font-size="92" font-weight="700" fill="#fffdf8">cura del <tspan fill="#d99a4e" font-style="italic">verde</tspan></text>
+  <text x="92" y="556" font-family="Georgia, serif" font-size="34" fill="#cfd2c4">Preventivo gratuito entro 48h · +39 338 453 1102</text>
+</svg>
