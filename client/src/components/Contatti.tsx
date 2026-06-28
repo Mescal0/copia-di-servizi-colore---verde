@@ -11,9 +11,10 @@ import { toast } from "sonner";
 import { trpc } from "@/lib/trpc";
 import { useRevealOnScroll } from "@/hooks/useRevealOnScroll";
 import { MapView } from "@/components/Map";
+import { getWhatsAppUrl, whatsappDisplayNumber, whatsappPhoneHref } from "@/lib/whatsapp";
 
 const contatti = [
-  { icon: Phone, label: "Telefono / WhatsApp", valore: "+39 338 453 1102", href: "tel:+393384531102" },
+  { icon: Phone, label: "Telefono", valore: whatsappDisplayNumber, href: whatsappPhoneHref },
   { icon: Mail, label: "Email", valore: "marco.baldi.24@gmail.com", href: "mailto:marco.baldi.24@gmail.com" },
   { icon: MapPin, label: "Zona di Intervento", valore: "Valdinievole e Pistoia", href: "#" },
   { icon: Clock, label: "Orari", valore: "Lun–Ven, 8:00–18:00", href: "#" },
@@ -76,7 +77,7 @@ export default function Contatti() {
               <span className="italic text-[oklch(0.35_0.08_145)]">tuo progetto</span>
             </h2>
             <p className="reveal font-['DM_Sans'] text-base text-[oklch(0.42_0.02_65)] leading-relaxed mb-10">
-              Sei nella <strong className="font-semibold text-[oklch(0.22_0.008_65)]">Valdinievole</strong> e cerchi un <strong className="font-semibold text-[oklch(0.22_0.008_65)]">imbianchino</strong> o un <strong className="font-semibold text-[oklch(0.22_0.008_65)]">giardiniere</strong>? Scrivici su WhatsApp o compila il modulo per fissare un <strong className="font-semibold text-[oklch(0.22_0.008_65)]">sopralluogo gratuito</strong> senza impegno. Interveniamo a Montecatini Terme, Pescia, Monsummano, Lamporecchio e in tutta la provincia di Pistoia entro 48 ore.
+              Sei nella <strong className="font-semibold text-[oklch(0.22_0.008_65)]">Valdinievole</strong> e cerchi un <strong className="font-semibold text-[oklch(0.22_0.008_65)]">imbianchino</strong> o un <strong className="font-semibold text-[oklch(0.22_0.008_65)]">giardiniere</strong>? Scrivici su WhatsApp o compila il modulo per fissare un <strong className="font-semibold text-[oklch(0.22_0.008_65)]">sopralluogo gratuito</strong> senza impegno. Interveniamo a Montecatini Terme, Pescia, Monsummano Terme, Lamporecchio e in tutta la provincia di Pistoia entro 48 ore.
             </p>
 
             {/* Contact info */}
@@ -125,7 +126,7 @@ export default function Contatti() {
               </p>
             </div>
             <a
-              href={`https://wa.me/393384531102?text=${encodeURIComponent("Salve! Sono nella zona della Valdinievole e ho bisogno di un imbianchino/giardiniere. Potete fissarmi un appuntamento gratuito di valutazione dell'intervento?")}`}
+              href={getWhatsAppUrl()}
               target="_blank"
               rel="noopener noreferrer"
               className="shrink-0 inline-flex items-center gap-2 bg-[#25D366] text-white px-4 py-2.5 font-['DM_Sans'] font-semibold text-sm hover:bg-[#1ebe5d] transition-colors duration-200"
@@ -157,17 +158,17 @@ export default function Contatti() {
             <div className="overflow-hidden" style={{ borderRadius: "2px", height: "220px" }}>
               <MapView
                 className="w-full h-full"
-                initialCenter={{ lat: 43.9308, lng: 10.9078 }}
+                initialCenter={{ lat: 43.8808, lng: 10.7728 }}
                 initialZoom={11}
                 onMapReady={(map) => {
                   const marker = new google.maps.marker.AdvancedMarkerElement({
                     map,
-                    position: { lat: 43.9308, lng: 10.9078 },
-                    title: "Colore & Verde — Pistoia",
+                    position: { lat: 43.8808, lng: 10.7728 },
+                    title: "Colore & Verde — Valdinievole",
                   });
                   const circle = new google.maps.Circle({
                     map,
-                    center: { lat: 43.9308, lng: 10.9078 },
+                    center: { lat: 43.8808, lng: 10.7728 },
                     radius: 25000,
                     fillColor: "#2e5c38",
                     fillOpacity: 0.12,
