@@ -38,10 +38,10 @@ const site = {
 
     // Indirizzo / sede operativa (serve allo schema LocalBusiness e a Google)
     address: {
-      street: "",
+      street: "Via Francesca Nord 930/B",
       locality: "Monsummano Terme",
       region: "PT",                  // sigla provincia
-      postalCode: "",
+      postalCode: "51015",
       country: "IT",
     },
 
