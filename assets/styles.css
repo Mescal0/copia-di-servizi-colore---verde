@@ -311,3 +311,13 @@ a.contact-row:hover{border-color:var(--green);transform:translateY(-2px)}
 .price-item strong{color:var(--green-deep);font-size:1.1rem;font-family:var(--font-display)}
 .price-note{font-size:.85rem;color:var(--ink-soft);margin-top:.8rem}
 
+
+/* ---------- GALLERIA LAVORI ---------- */
+.gal-grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
+.gal-item{margin:0;border-radius:var(--radius);overflow:hidden;background:var(--cream);border:1px solid var(--line);display:flex;flex-direction:column}
+.gal-item a{display:block;line-height:0}
+.gal-item img,.gal-item video{width:100%;height:220px;object-fit:cover;display:block;transition:transform .35s ease}
+.gal-item a:hover img{transform:scale(1.04)}
+.gal-item figcaption{padding:.55rem .8rem;font-size:.82rem;color:var(--ink-soft);font-weight:600}
+.gal-video video{background:#000}
+@media (max-width:480px){.gal-grid{grid-template-columns:repeat(2,1fr)}.gal-item img,.gal-item video{height:150px}}

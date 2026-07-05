@@ -16,7 +16,7 @@ const site = {
        Cloudflare (es. https://colore-e-verde.pages.dev) e cambialo dopo.
      SENZA lo "https://" e SENZA "/" finale.
   ----------------------------------------------------------------------- */
-  url: "https://www.artecolori.it",
+  url: "https://colore-e-verde.pages.dev",
 
   /* -----------------------------------------------------------------------
      2) DATI DELL'ATTIVITÀ
@@ -24,10 +24,10 @@ const site = {
      Sono importanti per Google Business e per i dati strutturati.
   ----------------------------------------------------------------------- */
   business: {
-    name: "Colore & Verde",
+    name: "Marco Baldi",
     // Nome/ragione del titolare per documenti e schema (facoltativo ma utile)
     legalName: "Marco Baldi",
-    tagline: "Imbianchino e cura del verde a Pistoia",
+    tagline: "Imbiancature e cura del verde — Pistoia e Firenze",
     foundedYear: 2005,
 
     // Contatti
@@ -77,9 +77,9 @@ const site = {
       name: "Imbiancatura e Tinteggiatura",
       short: "Pareti e soffitti perfetti, dentro e fuori casa.",
       // <title> e meta description della pagina
-      title: "Imbiancatura e Tinteggiatura a Pistoia | Colore & Verde",
+      title: "Imbiancatura e Tinteggiatura a Pistoia e Firenze | Marco Baldi",
       metaDescription:
-        "Imbiancatura e tinteggiatura di interni ed esterni a Pistoia e provincia. Lavoro pulito, preventivo gratuito entro 48h. Chiama +39 338 453 1102.",
+        "Imbiancatura e tinteggiatura di interni ed esterni a Pistoia, Montecatini e Firenze. Lavoro pulito, preventivo gratuito entro 48h su WhatsApp o email.",
       h1: "Imbiancatura e tinteggiatura",
       intro:
         "Tinteggiamo interni ed esterni con cura del dettaglio e protezione totale di pavimenti e mobili. Dalla singola stanza alla casa intera, ti diciamo prima quanto costa e quanto ci mettiamo.",
@@ -103,9 +103,9 @@ const site = {
       slug: "verniciatura",
       name: "Verniciatura Legno e Ferro",
       short: "Infissi, persiane, cancelli e ringhiere come nuovi.",
-      title: "Verniciatura Legno e Ferro a Pistoia | Colore & Verde",
+      title: "Verniciatura Legno e Ferro a Pistoia e Firenze | Marco Baldi",
       metaDescription:
-        "Verniciatura e trattamento di legno e ferro a Pistoia: persiane, portoni, cancelli, ringhiere. Prodotti professionali, preventivo gratuito entro 48h.",
+        "Verniciatura e trattamento di legno e ferro a Pistoia e Firenze: persiane, portoni, cancelli, ringhiere. Prodotti professionali, preventivo gratuito entro 48h.",
       h1: "Verniciatura di legno e ferro",
       intro:
         "Trattiamo e verniciamo legno e ferro per proteggerli dal tempo e restituire l'aspetto originale. Carteggiatura, fondo, protezione antiruggine o impregnante e finitura, fatti come si deve.",
@@ -124,9 +124,9 @@ const site = {
       slug: "cura-del-verde",
       name: "Cura del Verde e Giardinaggio",
       short: "Giardini ordinati tutto l'anno, senza pensieri.",
-      title: "Giardiniere a Pistoia — Cura del Verde | Colore & Verde",
+      title: "Giardiniere a Pistoia e Firenze — Cura del Verde | Marco Baldi",
       metaDescription:
-        "Giardiniere a Pistoia e provincia: sfalcio prati, potatura siepi e piante, pulizia aree verdi. Interventi singoli o manutenzione periodica. Preventivo gratuito.",
+        "Giardiniere a Pistoia, Montecatini e Firenze: sfalcio prati, potatura siepi e piante, pulizia aree verdi. Interventi singoli o manutenzione periodica. Preventivo gratuito.",
       h1: "Cura del verde e giardinaggio",
       intro:
         "Manteniamo il tuo verde in ordine durante tutto l'anno: dal taglio dell'erba alla potatura, fino alla pulizia stagionale. Interventi una tantum o contratti di manutenzione periodica.",
@@ -161,6 +161,8 @@ const site = {
       note: "Disponibili per privati e condomìni in tutto il comune." },
     { slug: "quarrata", name: "Quarrata",
       note: "Copriamo Quarrata e l'area della piana pistoiese." },
+    { slug: "firenze", name: "Firenze",
+      note: "Interveniamo anche a Firenze e provincia per lavori programmati: imbiancature complete, verniciature e manutenzione del verde." },
   ],
 
   /* -----------------------------------------------------------------------
@@ -173,6 +175,55 @@ const site = {
   reviews: [
     // Esempio di formato (sostituisci con recensioni reali o cancella):
     // { author: "Giulia R.", text: "Lavoro pulito e puntuale, casa rimessa a nuovo.", zone: "Pistoia" },
+  ],
+
+  /* -----------------------------------------------------------------------
+     5b) CHI SONO — sezione di presentazione personale in home
+  ----------------------------------------------------------------------- */
+  about: {
+    title: "Chi sono",
+    paragraphs: [
+      "Mi chiamo Marco e dal 2005 mi occupo di imbiancature, verniciature e cura del verde tra Pistoia, la Valdinievole e Firenze. Lavoro in prima persona su ogni cantiere: chi mi scrive parla direttamente con chi poi farà il lavoro.",
+      "Che si tratti di tinteggiare un appartamento, riportare a nuovo un cancello in ferro o tenere in ordine un giardino tutto l'anno, il metodo è lo stesso: sopralluogo gratuito, preventivo chiaro per iscritto entro 48 ore, cantiere protetto e pulito a fine lavoro.",
+    ],
+    // Contatto preferito: WhatsApp o email. Niente chiamate dirette.
+    note: "Preferisco essere contattato su WhatsApp o via email: rispondo appena possibile, di solito in giornata.",
+  },
+
+  /* -----------------------------------------------------------------------
+     5c) GALLERIA LAVORI — pagina /lavori/ + anteprima in home
+     type: "image" usa src + thumb (WebP). type: "video" usa src (mp4 H.264).
+  ----------------------------------------------------------------------- */
+  gallery: [
+    { type: "image", src: "/images/lavori/img-4684.webp", thumb: "/images/lavori/img-4684-thumb.webp",
+      alt: "Esterno di villetta con facciata e travi del portico tinteggiati", label: "Tinteggiatura esterni — villetta" },
+    { type: "image", src: "/images/lavori/img-5036.webp", thumb: "/images/lavori/img-5036-thumb.webp",
+      alt: "Camera tinteggiata di bianco con finitura uniforme", label: "Tinteggiatura interni — camera" },
+    { type: "image", src: "/images/lavori/img-5077.webp", thumb: "/images/lavori/img-5077-thumb.webp",
+      alt: "Soggiorno con pareti bianche appena tinteggiate durante il cantiere", label: "Tinteggiatura interni — soggiorno" },
+    { type: "image", src: "/images/lavori/img-4978.webp", thumb: "/images/lavori/img-4978-thumb.webp",
+      alt: "Corridoio con travi in legno a vista e pareti tinteggiate di fresco", label: "Interni con travi a vista" },
+    { type: "image", src: "/images/lavori/img-4979.webp", thumb: "/images/lavori/img-4979-thumb.webp",
+      alt: "Mansarda con travi in legno e pareti bianche tinteggiate", label: "Tinteggiatura mansarda" },
+    { type: "image", src: "/images/lavori/img-5038.webp", thumb: "/images/lavori/img-5038-thumb.webp",
+      alt: "Bagno lavanderia con pareti tinteggiate di bianco", label: "Tinteggiatura bagno" },
+    { type: "image", src: "/images/lavori/img-0377.webp", thumb: "/images/lavori/img-0377-thumb.webp",
+      alt: "Cancello scorrevole in ferro riverniciato di verde scuro", label: "Verniciatura cancello — dopo" },
+    { type: "image", src: "/images/lavori/img-0376.webp", thumb: "/images/lavori/img-0376-thumb.webp",
+      alt: "Cancellata in ferro con vernice scrostata prima del trattamento", label: "Verniciatura cancello — prima" },
+    { type: "image", src: "/images/lavori/img-0373.webp", thumb: "/images/lavori/img-0373-thumb.webp",
+      alt: "Portone in ferro ossidato prima del trattamento antiruggine", label: "Trattamento antiruggine — prima" },
+    { type: "image", src: "/images/lavori/img-0291.webp", thumb: "/images/lavori/img-0291-thumb.webp",
+      alt: "Ringhiera in ferro di un balcone prima del restauro", label: "Restauro ringhiera — prima" },
+    { type: "image", src: "/images/lavori/img-0293.webp", thumb: "/images/lavori/img-0293-thumb.webp",
+      alt: "Balconata con ringhiera in ferro da riverniciare", label: "Restauro balconata — prima" },
+    { type: "video", src: "/images/lavori/video-1.mp4", label: "Video dal cantiere" },
+    { type: "video", src: "/images/lavori/video-2.mp4", label: "Video dal cantiere" },
+    { type: "video", src: "/images/lavori/video-3.mp4", label: "Video dal cantiere" },
+    { type: "video", src: "/images/lavori/video-4.mp4", label: "Video dal cantiere" },
+    { type: "video", src: "/images/lavori/video-5.mp4", label: "Video dal cantiere" },
+    { type: "video", src: "/images/lavori/video-6.mp4", label: "Video dal cantiere" },
+    { type: "video", src: "/images/lavori/video-7.mp4", label: "Video dal cantiere" },
   ],
 
   /* -----------------------------------------------------------------------

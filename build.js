@@ -33,6 +33,7 @@ function pageList() {
   const pages = [
     { path: "/", file: "index.html", html: T.homePage(site), priority: "1.0", changefreq: "monthly" },
     { path: "/contatti/", file: "contatti/index.html", html: T.contattiPage(site), priority: "0.8", changefreq: "yearly" },
+    { path: "/lavori/", file: "lavori/index.html", html: T.lavoriPage(site), priority: "0.8", changefreq: "monthly" },
   ];
   for (const s of site.services)
     pages.push({ path: `/servizi/${s.slug}/`, file: `servizi/${s.slug}/index.html`, html: T.servicePage(site, s), priority: "0.9", changefreq: "monthly" });
