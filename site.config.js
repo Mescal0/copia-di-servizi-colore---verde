@@ -16,7 +16,7 @@ const site = {
        Cloudflare (es. https://colore-e-verde.pages.dev) e cambialo dopo.
      SENZA lo "https://" e SENZA "/" finale.
   ----------------------------------------------------------------------- */
-  url: "https://colore-e-verde.pages.dev",
+  url: "https://copia-di-servizi-colore---verde.pages.dev",
 
   /* -----------------------------------------------------------------------
      2) DATI DELL'ATTIVITÀ

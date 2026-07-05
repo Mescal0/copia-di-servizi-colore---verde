@@ -5,8 +5,8 @@
 const https = require("https");
 
 const URLS = {
-  home: "https://colore-e-verde.pages.dev/",
-  contatti: "https://colore-e-verde.pages.dev/contatti/",
+  home: "https://copia-di-servizi-colore---verde.pages.dev/",
+  contatti: "https://copia-di-servizi-colore---verde.pages.dev/contatti/",
 };
 
 function fetch(url) {
